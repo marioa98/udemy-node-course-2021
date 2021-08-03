@@ -5,6 +5,8 @@ const app = express();
 const rootDir = require("./utils/path");
 const usersController = require("./controllers/users");
 
+app.use(express.static(path.join(rootDir, "public")))
+
 app.use("/users", usersController)
 app.get("/", (_req, res) => {
   res.status(200).sendFile(path.join(rootDir, "views", "index.html"))
